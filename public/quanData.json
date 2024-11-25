@@ -1,0 +1,129 @@
+{
+    "Quận 1": [
+        "Phường Tân Định", "Phường Đa Kao", "Phường Bến Nghé",
+        "Phường Bến Thành", "Phường Nguyễn Thái Bình", "Phường Phạm Ngũ Lão",
+        "Phường Cầu Ông Lãnh", "Phường Cô Giang", "Phường Nguyễn Cư Trinh",
+        "Phường Cầu Kho"
+    ],
+    "Quận 2": [
+        "Phường Thảo Điền", "Phường An Phú", "Phường Bình An",
+        "Phường Bình Trưng Đông", "Phường Bình Trưng Tây", "Phường Bình Khánh",
+        "Phường An Khánh", "Phường Cát Lái", "Phường Thạnh Mỹ Lợi",
+        "Phường An Lợi Đông", "Phường Thủ Thiêm"
+    ],
+    "Quận 3": [
+        "Phường 08", "Phường 07", "Phường 14", "Phường 12",
+        "Phường 11", "Phường 13", "Phường 06", "Phường 09",
+        "Phường 10", "Phường 04", "Phường 05", "Phường 03",
+        "Phường 02", "Phường 01"
+    ],
+    "Quận 4": [
+        "Phường 12", "Phường 13", "Phường 09", "Phường 06", "Phường 08",
+        "Phường 10", "Phường 05", "Phường 18", "Phường 14", "Phường 04",
+        "Phường 03", "Phường 16", "Phường 02", "Phường 15", "Phường 01"
+    ],
+    "Quận 5": [
+        "Phường 04", "Phường 09", "Phường 03", "Phường 12", "Phường 02",
+        "Phường 08", "Phường 15", "Phường 07", "Phường 01", "Phường 11",
+        "Phường 14", "Phường 05", "Phường 06", "Phường 10", "Phường 13"
+    ],
+    "Quận 6": [
+        "Phường 14", "Phường 13", "Phường 09", "Phường 06", "Phường 12",
+        "Phường 05", "Phường 11", "Phường 02", "Phường 01", "Phường 04",
+        "Phường 08", "Phường 03", "Phường 07", "Phường 10"
+    ],
+    "Quận 7": [
+        "Phường Tân Thuận Đông", "Phường Tân Thuận Tây", "Phường Tân Kiểng",
+        "Phường Tân Hưng", "Phường Bình Thuận", "Phường Tân Quy",
+        "Phường Phú Thuận", "Phường Tân Phú", "Phường Tân Phong", "Phường Phú Mỹ"
+    ],
+    "Quận 8": [
+        "Phường 08", "Phường 02", "Phường 01", "Phường 03", "Phường 11",
+        "Phường 09", "Phường 10", "Phường 04", "Phường 13", "Phường 12",
+        "Phường 05", "Phường 14", "Phường 06", "Phường 15", "Phường 16",
+        "Phường 07"
+    ],
+    "Quận 9": [
+        "Phường Long Bình", "Phường Long Thạnh Mỹ", "Phường Tân Phú",
+        "Phường Hiệp Phú", "Phường Tăng Nhơn Phú A", "Phường Tăng Nhơn Phú B",
+        "Phường Phước Long B", "Phường Phước Long A", "Phường Trường Thạnh",
+        "Phường Long Phước", "Phường Long Trường", "Phường Phước Bình",
+        "Phường Phú Hữu"
+    ],
+    "Quận 10": [
+        "Phường 15", "Phường 13", "Phường 14", "Phường 12", "Phường 11",
+        "Phường 10", "Phường 09", "Phường 01", "Phường 08", "Phường 02",
+        "Phường 04", "Phường 07", "Phường 05", "Phường 06", "Phường 03"
+    ],
+    "Quận 11": [
+        "Phường 15", "Phường 05", "Phường 14", "Phường 11", "Phường 03",
+        "Phường 10", "Phường 13", "Phường 08", "Phường 09", "Phường 12",
+        "Phường 07", "Phường 06", "Phường 04", "Phường 01", "Phường 02",
+        "Phường 16"
+    ],
+    "Quận 12": [
+        "Phường Thạnh Xuân", "Phường Thạnh Lộc", "Phường Hiệp Thành",
+        "Phường Thới An", "Phường Tân Chánh Hiệp", "Phường An Phú Đông",
+        "Phường Tân Thới Hiệp", "Phường Trung Mỹ Tây", "Phường Tân Hưng Thuận",
+        "Phường Đông Hưng Thuận", "Phường Tân Thới Nhất"
+    ],
+    "Quận Bình Thạnh": [
+        "Phường 13", "Phường 11", "Phường 27", "Phường 26", "Phường 12",
+        "Phường 25", "Phường 05", "Phường 07", "Phường 24", "Phường 06",
+        "Phường 14", "Phường 15", "Phường 02", "Phường 01", "Phường 03",
+        "Phường 17", "Phường 21", "Phường 22", "Phường 19", "Phường 28"
+    ],
+    "Quận Bình Tân": [
+        "Phường Bình Hưng Hòa", "Phường Bình Hưng Hòa A", "Phường Bình Hưng Hòa B",
+        "Phường Bình Trị Đông", "Phường Bình Trị Đông A", "Phường Bình Trị Đông B",
+        "Phường Tân Tạo", "Phường Tân Tạo A", "Phường An Lạc", "Phường An Lạc A"
+    ],
+    "Quận Gò Vấp": [
+        "Phường 15", "Phường 13", "Phường 17", "Phường 06", "Phường 16",
+        "Phường 12", "Phường 14", "Phường 10", "Phường 05", "Phường 07",
+        "Phường 04", "Phường 01", "Phường 09", "Phường 08", "Phường 11",
+        "Phường 03"
+    ],
+    "Quận Phú Nhuận": [
+        "Phường 04", "Phường 05", "Phường 09", "Phường 07", "Phường 03",
+        "Phường 01", "Phường 02", "Phường 08", "Phường 15", "Phường 10",
+        "Phường 11", "Phường 17", "Phường 14", "Phường 12", "Phường 13"
+    ],
+    "Quận Tân Bình": [
+        "Phường 02", "Phường 04", "Phường 12", "Phường 13", "Phường 01",
+        "Phường 03", "Phường 11", "Phường 07", "Phường 05", "Phường 10",
+        "Phường 06", "Phường 08", "Phường 09", "Phường 14", "Phường 15"
+    ],
+    "Quận Tân Phú": [
+        "Phường Tân Sơn Nhì", "Phường Tây Thạnh", "Phường Sơn Kỳ",
+        "Phường Tân Quý", "Phường Tân Thành", "Phường Phú Thọ Hòa",
+        "Phường Phú Thạnh", "Phường Phú Trung", "Phường Hòa Thạnh",
+        "Phường Hiệp Tân", "Phường Tân Thới Hòa"
+    ],
+    "Quận Thủ Đức": [
+        "Phường Linh Xuân", "Phường Bình Chiểu", "Phường Linh Trung",
+        "Phường Tam Bình", "Phường Tam Phú", "Phường Hiệp Bình Phước",
+        "Phường Hiệp Bình Chánh", "Phường Linh Chiểu", "Phường Linh Tây",
+        "Phường Linh Đông", "Phường Bình Thọ", "Phường Trường Thọ"
+    ],
+    "Huyện Hóc Môn": [
+        "Thị trấn Hóc Môn", "Xã Tân Thới Nhì", "Xã Tân Hiệp", "Xã Tân Xuân",
+        "Xã Bà Điểm", "Xã Xuân Thới Sơn", "Xã Xuân Thới Thượng", "Xã Tân Phú Trung",
+        "Xã Thới Tam Thôn"
+    ],
+    "Huyện Củ Chi": [
+        "Thị trấn Củ Chi", "Xã Phước Hiệp", "Xã An Nhơn Tây", "Xã Tân An Hội",
+        "Xã Phước Thạnh", "Xã Tân Phú Trung", "Xã Trung An", "Xã An Tây",
+        "Xã Thái Mỹ", "Xã Tân Thạnh Đông", "Xã Hòa Phú", "Xã Nhuận Đức",
+        "Xã Tân Thạnh Tây"
+    ],
+    "Huyện Nhà Bè": [
+        "Thị trấn Nhà Bè", "Xã Phú Xuân", "Xã Long Thới", "Xã Nhơn Đức",
+        "Xã Hiệp Phước", "Xã Tân Quý Tây", "Xã Tân Phong", "Xã Đông Thạnh"
+    ],
+    "Huyện Bình Chánh": [
+        "Thị trấn Tân Túc", "Xã Bình Hưng", "Xã Bình Chánh", "Xã Hưng Long",
+        "Xã Vĩnh Lộc A", "Xã Vĩnh Lộc B", "Xã Phạm Văn Hai", "Xã An Phú Tây",
+        "Xã Lê Minh Xuân", "Xã Tân Quý Tây", "Xã Tân Nhựt"
+    ]
+}
