@@ -6,8 +6,6 @@ function Content() {
   const [soHoKhau, setSoHoKhau] = useState('');
   const [hoTen, setHoTen] = useState('');
   const [diaChi, setDiaChi] = useState('');
-  const [soNha, setSoNha] = useState('');
-  const [tenDuong, setTenDuong] = useState('');
   const [quan, setQuan] = useState('');
   const [phuong, setPhuong] = useState('');
   const [quanData, setQuanData] = useState(null);
