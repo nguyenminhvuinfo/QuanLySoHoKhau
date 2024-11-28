@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { authenticateUser } from '../../../businessLogic/authService';
+import { authenticateUser } from '../../../businessLogic/LoginLogic';
 
 function Login() {
   const [loading, setLoading] = useState(false);
@@ -17,7 +17,7 @@ function Login() {
     try {
       const user = await authenticateUser(username, password);
       console.log('Đăng nhập thành công!', user);
-      window.location.href = '/dashboard';
+      window.location.href = '/adminPage';
     } catch (err) {
       setError(err.message);
     } finally {

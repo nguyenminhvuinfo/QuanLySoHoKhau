@@ -1,4 +1,4 @@
-import { fetchUserByUsername } from '../data/auth';
+import { fetchUserByUsername } from '../data/LoginData';
 
 /**
  * Hàm xác thực tài khoản với thông tin đăng nhập.
