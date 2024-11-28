@@ -6,7 +6,7 @@ function Footer() {
       <div className="container mx-auto px-4">
         {/* Phần dưới của Footer */}
         <div className=" text-center text-sm">
-          <p>&copy; 2024 CÔNG AN TP.HCM. All rights reserved.</p>
+          <p>&copy; 2024 Flameos. All rights reserved.</p>
           <p className="mt-2">Designed by FLAMEOS</p>
         </div>
       </div>
