@@ -25,7 +25,7 @@ function Header() {
       <div className="flex items-center">
         <Link to="/" className="flex items-center">
           <img src="logo.png" alt="Logo" className="h-8 w-8 rounded-full inline-block" />
-          <span className="px-2">FLEOMA</span>
+          <span className="px-2">FLAMEO</span>
         </Link>
         <nav>
           <ul className="flex space-x-6 pl-8">
