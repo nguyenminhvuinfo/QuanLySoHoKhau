@@ -21,7 +21,7 @@ function App() {
         const conditions = [
           { changetype: "Tăng", changereason: "Sinh con" },
           { changetype: "Giảm", changereason: "Qua đời" },
-          { changetype: "Giảm", changereason: "Chuyển đi" },
+          { changetype: "Giảm", changereason: "Chuy���n đi" },
           { changetype: "Tăng", changereason: "Chuyển đến" },
         ];
 
@@ -49,18 +49,26 @@ function App() {
   }, []); // Chạy một lần khi component mount
 
   return (
-    <div className="min-h-screen bg-gray-100 p-5 pt-24">
-      <h1 className="text-2xl font-bold text-center mb-6">Dữ Liệu Thống Kê</h1>
+    <div className="min-h-screen bg-white p-5 pt-24">
+      <h1 className="text-3xl font-bold text-center mb-8 text-red-700 drop-shadow-lg">
+        Dữ Liệu Thống Kê
+      </h1>
       {loading ? (
-        <div className="text-center text-xl text-blue-500">Đang tải...</div>
+        <div className="text-center text-xl text-red-600">Đang tải...</div>
       ) : (
         <div className="overflow-x-auto max-w-4xl mx-auto">
-          <table className="min-w-full table-auto bg-white shadow-md rounded-lg border-collapse">
+          <table className="min-w-full table-auto bg-white shadow-xl rounded-lg border border-purple-200">
             <thead>
-              <tr className="bg-blue-600 text-white text-sm">
-                <th className="px-3 py-2 text-left">Loại Thay Đổi</th>
-                <th className="px-3 py-2 text-left">Lý Do Thay Đổi</th>
-                <th className="px-3 py-2 text-center">Số Lượng</th> {/* Cột số lượng */}
+              <tr>
+                <th className="px-4 py-3 text-left font-semibold bg-purple-600 text-white rounded-tl-lg">
+                  Loại Thay Đổi
+                </th>
+                <th className="px-4 py-3 text-left font-semibold bg-purple-600 text-white">
+                  Lý Do Thay Đổi
+                </th>
+                <th className="px-4 py-3 text-center font-semibold bg-purple-600 text-white rounded-tr-lg">
+                  Số Lượng
+                </th>
               </tr>
             </thead>
             <tbody>
@@ -69,12 +77,21 @@ function App() {
                 { changetype: "Tăng", changereason: "Chuyển đến" },
                 { changetype: "Giảm", changereason: "Qua đời" },
                 { changetype: "Giảm", changereason: "Chuyển đi" },
-              ].map((condition) => (
-                <tr key={`${condition.changetype}_${condition.changereason}`} className="border-b hover:bg-blue-50 transition-colors">
-                  <td className="px-3 py-2 text-sm">{condition.changetype}</td>
-                  <td className="px-3 py-2 text-sm">{condition.changereason}</td>
-                  <td className="px-3 py-2 text-sm text-center">
-                    {countData[`${condition.changetype}_${condition.changereason}`] || 0} {/* Hiển thị số lượng dựa trên điều kiện */}
+              ].map((condition, index) => (
+                <tr 
+                  key={`${condition.changetype}_${condition.changereason}`} 
+                  className={`border-b border-purple-100 ${
+                    index % 2 === 0 ? 'bg-red-50' : 'bg-purple-50'
+                  } hover:bg-white transition-colors`}
+                >
+                  <td className="px-4 py-3 text-sm font-medium text-red-700">
+                    {condition.changetype}
+                  </td>
+                  <td className="px-4 py-3 text-sm font-medium text-purple-700">
+                    {condition.changereason}
+                  </td>
+                  <td className="px-4 py-3 text-sm text-center font-semibold text-red-600">
+                    {countData[`${condition.changetype}_${condition.changereason}`] || 0}
                   </td>
                 </tr>
               ))}
@@ -88,7 +105,7 @@ function App() {
 
 function Statistics() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-gradient-to-r from-red-100 via-white to-purple-100 min-h-screen">
       <Header />
       <App />
       <Footer />
