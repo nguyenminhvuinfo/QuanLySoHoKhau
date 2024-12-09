@@ -23,3 +23,18 @@ export const fetchHouseholdMembers = async (householdId) => {
     if (error) throw error;
     return data;
 };
+
+export const fetchCitizenData = async (filters) => {
+    const { data, error } = await supabase
+        .from('citizen')
+        .select(`
+            *,
+            householdmember!inner(
+                household(*)
+            )
+        `)
+        .or(`cccd.ilike.%${filters.cccd}%, householdmember.household.householdnumber.ilike.%${filters.cccd}%`);
+
+    if (error) throw error;
+    return data;
+};
