@@ -4,11 +4,17 @@ import { authenticateUser } from '../../../businessLogic/LoginLogic';
 import { useAuth } from '../../../context/AuthContext';
 
 function Login() {
-  const { login } = useAuth();
+  const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  React.useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/admin');
+    }
+  }, [isAuthenticated, navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -21,8 +27,7 @@ function Login() {
     try {
       const user = await authenticateUser(username, password);
       login(user);
-      const from = location.state?.from?.pathname || "/admin";
-      navigate(from, { replace: true });
+      navigate('/admin', { replace: true });
     } catch (err) {
       setError(err.message);
     } finally {
