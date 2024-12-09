@@ -6,53 +6,72 @@ import Footer from '../components/Footer';
 
 function Content() {
   return (
-    <main className="pb-10 pt-24 px-6 bg-gray-100">
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-3xl font-bold text-purple-600 mb-6">
-          Quản lý Nhân Khẩu và Hộ Khẩu
+    <main className="flex-grow py-24 px-6 bg-gray-50">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-4xl font-bold text-purple-700 mb-12 text-center">
+          Hệ Thống Quản Lý Hộ Khẩu
         </h1>
-        <div className="grid grid-cols-1 font-bold sm:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Option 1: Thêm hộ khẩu */}
           <Link
             to="/addHousehold"
-            className="bg-blue-500 text-white py-4 px-6 rounded-lg shadow-lg hover:bg-blue-600 transition"
+            className="group bg-white border border-blue-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col items-center justify-center gap-4"
           >
-            Thêm Hộ Khẩu
+            <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-500 transition-colors duration-200">
+              <i className="fas fa-plus-circle text-blue-500 text-2xl group-hover:text-white"></i>
+            </div>
+            <span className="font-semibold text-gray-800 text-center group-hover:text-blue-500">
+              Đăng Ký Hộ Khẩu
+            </span>
           </Link>
-          {/* Option 4: Chỉnh sửa thông tin hộ khẩu */}
+
+          {/* Option 2: Chỉnh sửa thông tin hộ khẩu */}
           <Link
             to="/searchHouseHold"
-            className="bg-purple-500 text-white py-4 px-6 rounded-lg shadow-lg hover:bg-purple-600 transition"
+            className="group bg-white border border-red-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col items-center justify-center gap-4"
           >
-            Chỉnh sửa, xoá thông tin Hộ Khẩu
+            <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center group-hover:bg-red-500 transition-colors duration-200">
+              <i className="fas fa-pencil-alt text-red-500 text-2xl group-hover:text-white"></i>
+            </div>
+            <span className="font-semibold text-gray-800 text-center group-hover:text-red-500">
+              Quản Lý Hộ Khẩu
+            </span>
           </Link>
-          {/* Option 2: Chỉnh sửa thông tin nhân khẩu */}
+
+          {/* Option 3: Chỉnh sửa thông tin nhân khẩu */}
           <Link
             to="/searchCitizen"
-            className="bg-green-500 text-white py-4 px-6 rounded-lg shadow-lg hover:bg-green-600 transition"
+            className="group bg-white border border-green-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col items-center justify-center gap-4"
           >
-            Chỉnh sửa Thông Tin Nhân Khẩu
+            <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-500 transition-colors duration-200">
+              <i className="fas fa-user-edit text-green-500 text-2xl group-hover:text-white"></i>
+            </div>
+            <span className="font-semibold text-gray-800 text-center group-hover:text-green-500">
+              Quản Lý Nhân Khẩu
+            </span>
           </Link>
 
-          {/* Option 3: Thống kê nhân khẩu */}
+          {/* Option 4: Thống kê nhân khẩu */}
           <Link
             to="/statistics"
-            className="bg-yellow-500 text-white py-4 px-6 rounded-lg shadow-lg hover:bg-yellow-600 transition"
+            className="group bg-white border border-yellow-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col items-center justify-center gap-4"
           >
-            Thống kê Nhân Khẩu theo Lý Do Tăng Giảm
+            <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center group-hover:bg-yellow-500 transition-colors duration-200">
+              <i className="fas fa-chart-line text-yellow-500 text-2xl group-hover:text-white"></i>
+            </div>
+            <span className="font-semibold text-gray-800 text-center group-hover:text-yellow-500">
+              Thống Kê Dân Số
+            </span>
           </Link>
-
-          
         </div>
       </div>
     </main>
   );
 }
 
-// Home Component that combines Header, Content, and Footer
-function UserPage() {
+function AdminPage() {
   return (
-    <div className="bg-white min-h-screen">
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
       <Content />
       <Footer />
@@ -60,4 +79,4 @@ function UserPage() {
   );
 }
 
-export default UserPage;
+export default AdminPage;
