@@ -13,6 +13,9 @@ import EditCitizen from "./presentation/admin/pages/EditCitizen";
 import EditCitizenPage from "./presentation/admin/pages/EditCitizenPage";
 import AddCitizen from "./presentation/admin/pages/AddCitizen";
 import Statistics from "./presentation/admin/pages/Statistics";
+import About from "./presentation/user/pages/About";
+import Guide from "./presentation/user/pages/Guide";
+import Contact from "./presentation/user/pages/Contact";
 
 
 function App() {
@@ -33,6 +36,9 @@ function App() {
           <Route path="/editCitizenPage" element={<EditCitizenPage />} />
           <Route path="/addCitizen" element={<AddCitizen />} />
           <Route path="/statistics" element={<Statistics />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/guide" element={<Guide />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </div>
     </Router>
