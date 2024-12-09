@@ -1,20 +1,12 @@
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
+import { useAuth } from '../../context/AuthContext';
 
-const ProtectedRoute = ({ children, requiredRole }) => {
-  const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-  const userRole = localStorage.getItem('userRole');
-  
-  // Log để debug
-  console.log('Protected Route Check:', { isLoggedIn, userRole, requiredRole });
+const ProtectedRoute = ({ children }) => {
+  const { user } = useAuth();
+  const location = useLocation();
 
-  if (!isLoggedIn) {
-    console.log('User not logged in, redirecting to login');
-    return <Navigate to="/login" />;
-  }
-
-  if (requiredRole && userRole !== requiredRole) {
-    console.log('User does not have required role, redirecting to home');
-    return <Navigate to="/" />;
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
   return children;

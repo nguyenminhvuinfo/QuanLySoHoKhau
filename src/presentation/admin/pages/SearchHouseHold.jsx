@@ -39,7 +39,7 @@ function Content() {
       householdId: selectedHousehold.householdid
     }).toString();
 
-    navigate(`/editHouseHold?${params}`);
+    navigate(`/admin/edit-household?${params}`);
   };
 
   return (

@@ -1,12 +1,12 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom"; 
+import { BrowserRouter, Routes, Route} from "react-router-dom";
 import UserPage from "./presentation/user/pages/UserPage";
 import Search from "./presentation/user/pages/Search";
 import Login from "./presentation/user/pages/Login";
 import Results from "./presentation/user/pages/Results";
 import AdminPage from "./presentation/admin/pages/AdminPage";
 import SearchHouseHold from "./presentation/admin/pages/SearchHouseHold";
-import AddHousehold from "./presentation/admin/pages/AddHouseHold"; // Đảm bảo bạn đã import đúng
+import AddHousehold from "./presentation/admin/pages/AddHouseHold";
 import EditHouseHold from "./presentation/admin/pages/EditHouseHold";
 import SearchCitizen from "./presentation/admin/pages/SearchCitizen";
 import EditCitizen from "./presentation/admin/pages/EditCitizen";
@@ -16,32 +16,42 @@ import Statistics from "./presentation/admin/pages/Statistics";
 import About from "./presentation/user/pages/About";
 import Guide from "./presentation/user/pages/Guide";
 import Contact from "./presentation/user/pages/Contact";
-
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './presentation/components/ProtectedRoute';
 
 function App() {
   return (
-    <Router>
-      <div className="App">
+    <AuthProvider>
+      <BrowserRouter>
         <Routes>
-          <Route path="/" element={<UserPage />} />  {/* Trang chính */}
+          {/* Public Routes */}
+          <Route path="/" element={<UserPage />} />
           <Route path="/search" element={<Search />} />
           <Route path="/results" element={<Results />} />
-          <Route path="/Login" element={<Login />} />
-          <Route path="/adminPage" element={<AdminPage />} />
-          <Route path="/searchHouseHold" element={<SearchHouseHold />} />
-          <Route path="/searchCitizen" element={<SearchCitizen />} />
-          <Route path="/addHousehold" element={<AddHousehold />} /> {/* Trang mới */}
-          <Route path="/editHouseHold" element={<EditHouseHold />} />
-          <Route path="/editCitizen" element={<EditCitizen />} />
-          <Route path="/editCitizenPage" element={<EditCitizenPage />} />
-          <Route path="/addCitizen" element={<AddCitizen />} />
-          <Route path="/statistics" element={<Statistics />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
           <Route path="/guide" element={<Guide />} />
           <Route path="/contact" element={<Contact />} />
+
+          {/* Admin Routes */}
+          <Route path="/admin/*" element={
+            <ProtectedRoute>
+              <Routes>
+                <Route path="/" element={<AdminPage />} />
+                <Route path="search-household" element={<SearchHouseHold />} />
+                <Route path="search-citizen" element={<SearchCitizen />} />
+                <Route path="add-household" element={<AddHousehold />} />
+                <Route path="edit-household" element={<EditHouseHold />} />
+                <Route path="edit-citizen" element={<EditCitizen />} />
+                <Route path="edit-citizen-page" element={<EditCitizenPage />} />
+                <Route path="add-citizen" element={<AddCitizen />} />
+                <Route path="statistics" element={<Statistics />} />
+              </Routes>
+            </ProtectedRoute>
+          } />
         </Routes>
-      </div>
-    </Router>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 

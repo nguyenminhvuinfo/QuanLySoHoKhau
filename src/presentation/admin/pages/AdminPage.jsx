@@ -14,7 +14,7 @@ function Content() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Option 1: Thêm hộ khẩu */}
           <Link
-            to="/addHousehold"
+            to="/admin/add-household"
             className="group bg-white border border-blue-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col items-center justify-center gap-4"
           >
             <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center group-hover:bg-blue-500 transition-colors duration-200">
@@ -27,7 +27,7 @@ function Content() {
 
           {/* Option 2: Chỉnh sửa thông tin hộ khẩu */}
           <Link
-            to="/searchHouseHold"
+            to="/admin/search-household"
             className="group bg-white border border-red-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col items-center justify-center gap-4"
           >
             <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center group-hover:bg-red-500 transition-colors duration-200">
@@ -40,7 +40,7 @@ function Content() {
 
           {/* Option 3: Chỉnh sửa thông tin nhân khẩu */}
           <Link
-            to="/searchCitizen"
+            to="/admin/search-citizen"
             className="group bg-white border border-green-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col items-center justify-center gap-4"
           >
             <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center group-hover:bg-green-500 transition-colors duration-200">
@@ -53,7 +53,7 @@ function Content() {
 
           {/* Option 4: Thống kê nhân khẩu */}
           <Link
-            to="/statistics"
+            to="/admin/statistics"
             className="group bg-white border border-yellow-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-200 p-6 flex flex-col items-center justify-center gap-4"
           >
             <div className="w-16 h-16 bg-yellow-100 rounded-full flex items-center justify-center group-hover:bg-yellow-500 transition-colors duration-200">

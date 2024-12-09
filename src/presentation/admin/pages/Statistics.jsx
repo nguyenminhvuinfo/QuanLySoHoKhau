@@ -21,7 +21,7 @@ function App() {
         const conditions = [
           { changetype: "Tăng", changereason: "Sinh con" },
           { changetype: "Giảm", changereason: "Qua đời" },
-          { changetype: "Giảm", changereason: "Chuy���n đi" },
+          { changetype: "Giảm", changereason: "Chuyển đi" },
           { changetype: "Tăng", changereason: "Chuyển đến" },
         ];
 

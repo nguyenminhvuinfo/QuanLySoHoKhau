@@ -1,75 +1,91 @@
-import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useAuth } from '../../../context/AuthContext';
+import { useState } from 'react';
 
 function Header() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // Giả sử người dùng đã đăng nhập
-  const [isLogoutConfirmVisible, setIsLogoutConfirmVisible] = useState(false); // Trạng thái cho hộp thoại xác nhận đăng xuất
+  const { logout, user } = useAuth();
   const navigate = useNavigate();
-
-  const handleLogoutClick = () => {
-    setIsLogoutConfirmVisible(true); // Hiển thị hộp thoại xác nhận đăng xuất
-  };
+  const [showHouseholdDropdown, setShowHouseholdDropdown] = useState(false);
 
   const handleLogout = () => {
-    setIsLoggedIn(false); // Đặt lại trạng thái đăng nhập thành false
-    setIsLogoutConfirmVisible(false); // Ẩn hộp thoại xác nhận
-    navigate('/'); // Điều hướng về trang chủ sau khi đăng xuất
-  };
-
-  const handleCancelLogout = () => {
-    setIsLogoutConfirmVisible(false); // Ẩn hộp thoại xác nhận nếu người dùng hủy
+    logout();
+    navigate('/');
   };
 
   return (
-    <header className="fixed w-full bg-red-600 text-yellow-100 font-bold p-4 flex justify-between items-center px-16 py-4 shadow-md z-10">
-      {/* Logo và Menu bên trái */}
-      <div className="flex items-center">
-        <Link to="/adminPage" className="flex items-center">
-          <img src="logo.png" alt="Logo" className="h-8 w-8 rounded-full inline-block" />
-          <span className="px-2">FLAMEO</span>
-        </Link>
-        <nav>
-          <ul className="flex space-x-6 pl-8">
-            <li><a href="/adminPage" className="hover:underline">Trang chủ</a></li>
-            <li><a href="/about" className="hover:underline">Giới Thiệu</a></li>
-            <li><a href="/guide" className="hover:underline">Hướng Dẫn</a></li>
-            <li><a href="/contact" className="hover:underline">Liên Hệ</a></li>
-          </ul>
-        </nav>
+    <div className="fixed w-full z-10">
+      {/* Thanh thông tin phía trên */}
+      <div className="bg-purple-800 text-white px-16 py-1 flex justify-between items-center text-sm">
+        <div className="flex items-center space-x-4">
+          <span>
+            <i className="fas fa-clock mr-2"></i>
+            {new Date().toLocaleDateString('vi-VN')}
+          </span>
+          <span>
+            <i className="fas fa-user mr-2"></i>
+            Xin chào, {user?.username || 'Admin'}
+          </span>
+        </div>
       </div>
 
-      {/* Nút đăng xuất bên phải */}
-      <div className="flex items-center space-x-2">
-        {isLoggedIn ? (
-          <>
-            <button
-              onClick={handleLogoutClick}
-              className="bg-white text-orange-600 hover:bg-orange-100 px-4 py-2 rounded">
-              Đăng Xuất
-            </button>
-            {/* Hộp thoại xác nhận đăng xuất */}
-            {isLogoutConfirmVisible && (
-              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-                <div className="bg-white p-6 rounded-lg shadow-lg w-96 text-center">
-                  <h2 className="text-lg text-purple-600 font-bold mb-4">Xác nhận đăng xuất</h2>
-                  <p className="text-gray-700 mb-4">Bạn có chắc chắn muốn đăng xuất?</p>
-                  <button
-                    onClick={handleLogout}
-                    className="mt-4 px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600">
-                    Đăng xuất
-                  </button>
-                  <button
-                    onClick={handleCancelLogout}
-                    className="mt-4 px-4 py-2 bg-gray-300 text-black rounded hover:bg-gray-400 ml-2">
-                    Hủy
-                  </button>
-                </div>
+      {/* Thanh điều hướng chính */}
+      <header className="bg-red-600 text-yellow-100 px-16 py-4 shadow-lg">
+        <div className="flex justify-between items-center">
+          {/* Logo và tên hệ thống */}
+          <div className="flex items-center space-x-8">
+            <Link to="/admin" className="flex items-center space-x-3">
+              <img src="/logo.png" alt="Logo" className="h-10 w-10 rounded-full" />
+              <span className="text-xl font-bold">FLAMEO ADMIN</span>
+            </Link>
+
+            {/* Menu chính */}
+            <nav className="flex space-x-1">
+              <Link to="/admin" className="px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                Dashboard
+              </Link>
+              
+              {/* Menu Quản lý hộ khẩu */}
+              <div className="relative">
+                <button 
+                  className="px-4 py-2 rounded-lg hover:bg-red-700 transition flex items-center"
+                  onClick={() => setShowHouseholdDropdown(!showHouseholdDropdown)}
+                >
+                  Quản lý hộ khẩu
+                  <i className="fas fa-chevron-down ml-2"></i>
+                </button>
+                {showHouseholdDropdown && (
+                  <div className="absolute top-full left-0 mt-1 bg-white text-gray-800 rounded-lg shadow-xl py-2 w-48">
+                    <Link to="/admin/search-household" className="block px-4 py-2 hover:bg-gray-100">
+                      Quản lý hộ khẩu
+                    </Link>
+                    <Link to="/admin/add-household" className="block px-4 py-2 hover:bg-gray-100">
+                      Đăng ký hộ khẩu
+                    </Link>
+                  </div>
+                )}
               </div>
-            )}
-          </>
-        ) : null}
-      </div>
-    </header>
+
+              <Link to="/admin/search-citizen" className="px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                Quản lý nhân khẩu
+              </Link>
+
+              <Link to="/admin/statistics" className="px-4 py-2 rounded-lg hover:bg-red-700 transition">
+                Thống kê
+              </Link>
+            </nav>
+          </div>
+
+          {/* Nút đăng xuất */}
+          <button
+            onClick={handleLogout}
+            className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-lg transition flex items-center space-x-2"
+          >
+            <i className="fas fa-sign-out-alt"></i>
+            <span>Đăng xuất</span>
+          </button>
+        </div>
+      </header>
+    </div>
   );
 }
 

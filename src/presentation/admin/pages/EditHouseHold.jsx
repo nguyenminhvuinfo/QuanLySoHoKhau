@@ -92,7 +92,7 @@ function Results() {
 
                 await deleteHouseholdWithMembers(householdId); // Gọi delete theo householdid
                 alert('Xóa thành công!');
-                navigate('/searchHouseHold');
+                navigate('/admin/search-household');
             } catch (error) {
                 console.error('Lỗi xóa sổ hộ khẩu:', error);
                 alert('Xóa thất bại. Vui lòng thử lại.');
@@ -129,7 +129,7 @@ function Results() {
             if (result.success) {
                 alert('Cập nhật thành công!');
                 setShowUpdateModal(false); // Đóng modal
-                navigate('/searchHouseHold');
+                navigate('/admin/search-household');
             } else {
                 alert(`Cập nhật thất bại: ${result.message}`);
             }

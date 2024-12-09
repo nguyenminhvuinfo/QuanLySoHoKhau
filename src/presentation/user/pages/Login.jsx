@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { authenticateUser } from '../../../businessLogic/LoginLogic';
+import { useAuth } from '../../../context/AuthContext';
 
 function Login() {
+  const { login } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -16,8 +20,9 @@ function Login() {
 
     try {
       const user = await authenticateUser(username, password);
-      console.log('Đăng nhập thành công!', user);
-      window.location.href = '/adminPage';
+      login(user);
+      const from = location.state?.from?.pathname || "/admin";
+      navigate(from, { replace: true });
     } catch (err) {
       setError(err.message);
     } finally {
