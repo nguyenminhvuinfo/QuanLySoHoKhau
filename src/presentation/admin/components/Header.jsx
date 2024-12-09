@@ -14,20 +14,6 @@ function Header() {
 
   return (
     <div className="fixed w-full z-10">
-      {/* Thanh thông tin phía trên */}
-      <div className="bg-purple-800 text-white px-16 py-1 flex justify-between items-center text-sm">
-        <div className="flex items-center space-x-4">
-          <span>
-            <i className="fas fa-clock mr-2"></i>
-            {new Date().toLocaleDateString('vi-VN')}
-          </span>
-          <span>
-            <i className="fas fa-user mr-2"></i>
-            Xin chào, {user?.username || 'Admin'}
-          </span>
-        </div>
-      </div>
-
       {/* Thanh điều hướng chính */}
       <header className="bg-red-600 text-yellow-100 px-16 py-4 shadow-lg">
         <div className="flex justify-between items-center">
@@ -75,14 +61,29 @@ function Header() {
             </nav>
           </div>
 
-          {/* Nút đăng xuất */}
-          <button
-            onClick={handleLogout}
-            className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-lg transition flex items-center space-x-2"
-          >
-            <i className="fas fa-sign-out-alt"></i>
-            <span>Đăng xuất</span>
-          </button>
+          {/* Phần bên phải */}
+          <div className="flex items-center space-x-6">
+            {/* Thông tin người dùng */}
+            <div className="flex items-center space-x-4 text-sm">
+              <span>
+                <i className="fas fa-clock mr-2"></i>
+                {new Date().toLocaleDateString('vi-VN')}
+              </span>
+              <span>
+                <i className="fas fa-user mr-2"></i>
+                Xin chào, {user?.username || 'Admin'}
+              </span>
+            </div>
+
+            {/* Nút đăng xuất */}
+            <button
+              onClick={handleLogout}
+              className="bg-red-700 hover:bg-red-800 text-white px-4 py-2 rounded-lg transition flex items-center space-x-2"
+            >
+              <i className="fas fa-sign-out-alt"></i>
+              <span>Đăng xuất</span>
+            </button>
+          </div>
         </div>
       </header>
     </div>
