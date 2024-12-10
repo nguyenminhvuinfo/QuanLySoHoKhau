@@ -49,7 +49,7 @@ function Results() {
 
     const handleAddCitizen = () => {
         const householdid = householdMembers[0]?.householdid;
-        navigate(`/addCitizen?householdid=${householdid}`);
+        navigate(`/admin/add-citizen?householdid=${householdid}`);
     };
 
     const handleDeleteCitizen = async () => {
@@ -75,7 +75,7 @@ function Results() {
                 await deleteCitizen(selectedMember, deleteReason);
     
                 // Thêm dữ liệu vào bảng statistics trong Supabase
-                const { data, error } = await supabase
+                const { error } = await supabase
                     .from('statistics')
                     .insert([
                         {
