@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { authenticateUser } from '../../../businessLogic/LoginLogic';
 import { useAuth } from '../../../context/AuthContext';
 
 function Login() {
   const { login, isAuthenticated } = useAuth();
   const navigate = useNavigate();
-  const location = useLocation();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -47,7 +46,7 @@ function Login() {
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label htmlFor="username" className="block text-gray-700 font-medium mb-2">
-              Tài khoản (Tên người dùng):
+              Tài khoản (T��n người dùng):
             </label>
             <input
               type="text"

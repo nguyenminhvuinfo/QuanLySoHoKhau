@@ -6,6 +6,7 @@ export const addCitizen = async (citizenData) => {
         .insert([
             {
                 householdid: citizenData.householdid,
+                relationshipwithowner: citizenData.relationshipwithowner,
                 fullname: citizenData.fullname,
                 alias: citizenData.alias,
                 dateofbirth: citizenData.dateofbirth,
