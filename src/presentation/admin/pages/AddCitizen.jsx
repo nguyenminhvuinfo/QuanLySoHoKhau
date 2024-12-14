@@ -19,6 +19,7 @@ function AddCitizen() {
     // State để lưu thông tin công dân
     const [citizenData, setCitizenData] = useState({
         householdid: '', // Sẽ được gán từ URL
+        relationshipwithowner: '',
         fullname: '',
         alias: '',
         dateofbirth: '',
@@ -88,7 +89,28 @@ function AddCitizen() {
             <div className="bg-white p-8 rounded-lg shadow-xl w-full max-w-2xl">
                 <h2 className="text-3xl font-semibold text-center text-[#007BFF] mb-6">Thêm Công Dân</h2>
                 <form onSubmit={handleSubmit}>
-                    {/* Không cần nhập HouseholdID, giá trị này đã được lấy từ URL */}
+                    <div className="mb-4">
+                        <label className="block text-gray-700">Quan Hệ Với Chủ Hộ:</label>
+                        <select
+                            name="relationshipwithowner"
+                            value={citizenData.relationshipwithowner}
+                            onChange={handleChange}
+                            required
+                            className="w-full px-4 py-2 border border-gray-300 rounded-lg"
+                        >
+                            <option value="">-- Chọn Quan Hệ --</option>
+                            <option value="Chủ hộ">Chủ hộ</option>
+                            <option value="Vợ">Vợ</option>
+                            <option value="Chồng">Chồng</option>
+                            <option value="Con">Con</option>
+                            <option value="Bố">Bố</option>
+                            <option value="Mẹ">Mẹ</option>
+                            <option value="Ông">Ông</option>
+                            <option value="Bà">Bà</option>
+                            <option value="Cháu">Cháu</option>
+                            <option value="Khác">Khác</option>
+                        </select>
+                    </div>
                     <div className="mb-4">
                         <label className="block text-gray-700">Họ và Tên:</label>
                         <input
