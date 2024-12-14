@@ -73,7 +73,7 @@ function AddCitizen() {
         try {
             await addCitizen(citizenData); // Assuming you handle both add and update logic here
             alert('Cập nhật công dân thành công!');
-            navigate('/searchCitizen');
+            navigate('/admin/searchCitizen');
         } catch (error) {
             console.error('Lỗi khi cập nhật công dân:', error);
             alert(`Lỗi: ${error.message || 'Có lỗi xảy ra, vui lòng thử lại!'}`);
@@ -82,7 +82,7 @@ function AddCitizen() {
 
     // Handle cancel action
     const handleCancel = () => {
-        navigate('/searchCitizen');
+        navigate('/admin/searchCitizen');
     };
 
     if (loading) {
