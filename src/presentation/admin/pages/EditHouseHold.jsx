@@ -26,6 +26,9 @@ function Results() {
     const [phuong, setPhuong] = useState(ward || '');
     const [quan, setQuan] = useState(district || '');
 
+    const [quanData, setQuanData] = useState({});
+    const [availableWards, setAvailableWards] = useState([]);
+
     const printRef = useRef();
 
     useEffect(() => {
@@ -51,6 +54,24 @@ function Results() {
 
         loadData();
     }, [householdNumber, ownerName, streetAddress, ward, district]);
+
+    useEffect(() => {
+        fetch('/quanData.json')
+            .then(response => response.json())
+            .then(data => {
+                setQuanData(data);
+                if (quan) {
+                    setAvailableWards(data[quan] || []);
+                }
+            })
+            .catch(error => console.error('Error loading district data:', error));
+    }, [quan]);
+
+    const handleDistrictChange = (selectedDistrict) => {
+        setQuan(selectedDistrict);
+        setPhuong('');
+        setAvailableWards(quanData[selectedDistrict] || []);
+    };
 
     const handlePrint = () => {
         const printContent = printRef.current;
@@ -190,7 +211,7 @@ function Results() {
                 </div>
                 <div className="flex justify-between mt-6">
                     <button
-                        onClick={() => navigate('/search')}
+                        onClick={() => navigate('/admin/search-household')}
                         className="bg-gray-400 text-white py-2 px-6 rounded-lg hover:bg-gray-500 transition duration-300 ease-in-out"
                     >
                         Tiếp tục tìm kiếm
@@ -250,22 +271,30 @@ function Results() {
                                 />
                             </label>
                             <label className="block text-sm mb-2">
+                                Quận:
+                                <select
+                                    value={quan}
+                                    onChange={(e) => handleDistrictChange(e.target.value)}
+                                    className="w-full border rounded p-2 mt-1"
+                                >
+                                    <option value="">Chọn quận</option>
+                                    {Object.keys(quanData).map(district => (
+                                        <option key={district} value={district}>{district}</option>
+                                    ))}
+                                </select>
+                            </label>
+                            <label className="block text-sm mb-2">
                                 Phường:
-                                <input
-                                    type="text"
+                                <select
                                     value={phuong}
                                     onChange={(e) => setPhuong(e.target.value)}
                                     className="w-full border rounded p-2 mt-1"
-                                />
-                            </label>
-                            <label className="block text-sm mb-2">
-                                Quận:
-                                <input
-                                    type="text"
-                                    value={quan}
-                                    onChange={(e) => setQuan(e.target.value)}
-                                    className="w-full border rounded p-2 mt-1"
-                                />
+                                >
+                                    <option value="">Chọn phường</option>
+                                    {availableWards.map(ward => (
+                                        <option key={ward} value={ward}>{ward}</option>
+                                    ))}
+                                </select>
                             </label>
                             <div className="flex justify-between mt-4">
                                 <button
