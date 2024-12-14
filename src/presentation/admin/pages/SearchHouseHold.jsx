@@ -31,12 +31,12 @@ function Content() {
     }
 
     const params = new URLSearchParams({
+      householdId: selectedHousehold.householdid,
       soHoKhau: selectedHousehold.householdnumber,
       hoTen: selectedHousehold.ownername,
       diaChi: selectedHousehold.streetaddress,
       quan: selectedHousehold.district,
-      phuong: selectedHousehold.ward,
-      householdId: selectedHousehold.householdid
+      phuong: selectedHousehold.ward
     }).toString();
 
     navigate(`/admin/edit-household?${params}`);

@@ -31,6 +31,7 @@ function Content() {
     }
 
     const params = new URLSearchParams({
+      householdid: selectedHousehold.householdid,
       soHoKhau: selectedHousehold.householdnumber,
       hoTen: selectedHousehold.ownername,
       diaChi: selectedHousehold.streetaddress,

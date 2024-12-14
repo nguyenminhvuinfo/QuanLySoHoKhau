@@ -9,6 +9,7 @@ function Results() {
     const navigate = useNavigate();
     const params = new URLSearchParams(location.search);
 
+    const householdId = params.get('householdId');
     const householdNumber = params.get('soHoKhau');
     const ownerName = params.get('hoTen');
     const streetAddress = params.get('diaChi');
@@ -36,6 +37,7 @@ function Results() {
             setLoading(true);
             try {
                 const result = await getHouseholdWithMembers({
+                    householdid: householdId,
                     householdnumber: householdNumber,
                     ownername: ownerName,
                     streetaddress: streetAddress,
@@ -53,7 +55,7 @@ function Results() {
         };
 
         loadData();
-    }, [householdNumber, ownerName, streetAddress, ward, district]);
+    }, [householdId, householdNumber, ownerName, streetAddress, ward, district]);
 
     useEffect(() => {
         fetch('/quanData.json')
@@ -105,13 +107,13 @@ function Results() {
         if (window.confirm('Bạn có chắc chắn muốn xóa sổ hộ khẩu này không?')) {
             try {
                 setLoading(true);
-                const householdId = householdMembers[0]?.householdid; // Lấy householdid từ danh sách thành viên
+                const householdId = params.get('householdId'); // Lấy householdId từ params
                 if (!householdId) {
                     alert('Không tìm thấy ID hộ khẩu.');
                     return;
                 }
 
-                await deleteHouseholdWithMembers(householdId); // Gọi delete theo householdid
+                await deleteHouseholdWithMembers(householdId);
                 alert('Xóa thành công!');
                 navigate('/admin/search-household');
             } catch (error) {
@@ -139,7 +141,6 @@ function Results() {
                 district: quan,
             };
     
-            const householdId = householdMembers[0]?.householdid;
             if (!householdId) {
                 alert('Không tìm thấy ID hộ khẩu.');
                 return;
@@ -149,7 +150,7 @@ function Results() {
     
             if (result.success) {
                 alert('Cập nhật thành công!');
-                setShowUpdateModal(false); // Đóng modal
+                setShowUpdateModal(false);
                 navigate('/admin/search-household');
             } else {
                 alert(`Cập nhật thất bại: ${result.message}`);
@@ -178,7 +179,7 @@ function Results() {
                         <div>
                             <p className="text-lg text-gray-700 mb-4"><strong className="font-bold">Mã Sổ Hộ Khẩu:</strong> {householdNumber}</p>
                             <p className="text-lg text-gray-700 mb-4"><strong className="font-bold">Chủ Hộ:</strong> {ownerName}</p>
-                            <p className="text-lg text-gray-700 mb-6"><strong className="font-bold">Nơi Thường Trú:</strong> {`${streetAddress}, ${ward}, ${district}`}</p>
+                            <p className="text-lg text-gray-700 mb-6"><strong className="font-bold">Nơi Thờng Trú:</strong> {`${streetAddress}, ${ward}, ${district}`}</p>
                             <h3 className="text-xl font-semibold text-[#007BFF] mb-4">Danh Sách Thành Viên:</h3>
                             <table className="min-w-full table-auto bg-white shadow-md rounded-lg overflow-hidden">
                                 <thead>

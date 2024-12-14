@@ -14,6 +14,7 @@ function Results() {
     const streetAddress = params.get('diaChi');
     const ward = params.get('phuong');
     const district = params.get('quan');
+    const householdid = params.get('householdid');
 
     const [exists, setExists] = useState(null);
     const [householdMembers, setHouseholdMembers] = useState([]);
@@ -48,9 +49,13 @@ function Results() {
     }, [householdNumber, ownerName, streetAddress, ward, district]);
 
     const handleAddCitizen = () => {
-        const householdid = householdMembers[0]?.householdid;
-        navigate(`/admin/add-citizen?householdid=${householdid}`);
-    };
+    if (!householdid) {
+        alert('Mã hộ khẩu không tồn tại!');
+        return;
+    }
+    navigate(`/admin/add-citizen?householdid=${householdid}`);
+};
+
 
     const handleDeleteCitizen = async () => {
         if (!selectedMember) {
@@ -110,7 +115,6 @@ function Results() {
             alert('Vui lòng chọn một công dân.');
             return;
         }
-        const householdid = householdMembers[0]?.householdid;
         navigate(`/editCitizenPage?householdid=${householdid}&memberid=${selectedMember}`);
     };
 
