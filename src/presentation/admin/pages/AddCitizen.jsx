@@ -73,11 +73,10 @@ function AddCitizen() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // Gọi hàm thêm công dân và chuyển hướng về trang kết quả
             await addToStatistics(citizenData.reason);
             await addCitizen(citizenData);
             alert('Thêm công dân thành công!');
-            navigate('/admin/search-citizen'); // Điều hướng về trang kết quả
+            navigate(-1);
         } catch (error) {
             console.error('Lỗi khi thêm công dân:', error);
             alert(`Lỗi: ${error.message || 'Có lỗi xảy ra, vui lòng thử lại!'}`);
@@ -253,7 +252,7 @@ function AddCitizen() {
                     <div className="flex justify-between">
                         <button
                             type="button"
-                            onClick={() => navigate('/results')}
+                            onClick={() => navigate(-1)}
                             className="px-4 py-2 bg-gray-400 text-white rounded-lg hover:bg-gray-500"
                         >
                             Trở về
