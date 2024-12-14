@@ -115,7 +115,7 @@ function Results() {
             alert('Vui lòng chọn một công dân.');
             return;
         }
-        navigate(`/admin/editCitizenPage?householdid=${householdid}&memberid=${selectedMember}`);
+        navigate(`/admin/edit-citizen-page?householdid=${householdid}&memberid=${selectedMember}`);
     };
 
     if (loading) return <div className="text-center text-xl text-gray-600">Đang tải...</div>;

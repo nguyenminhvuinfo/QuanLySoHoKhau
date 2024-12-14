@@ -73,7 +73,7 @@ function AddCitizen() {
         try {
             await addCitizen(citizenData); // Assuming you handle both add and update logic here
             alert('Cập nhật công dân thành công!');
-            navigate('/admin/searchCitizen');
+            navigate('/admin/search-citizen');
         } catch (error) {
             console.error('Lỗi khi cập nhật công dân:', error);
             alert(`Lỗi: ${error.message || 'Có lỗi xảy ra, vui lòng thử lại!'}`);
@@ -82,7 +82,7 @@ function AddCitizen() {
 
     // Handle cancel action
     const handleCancel = () => {
-        navigate('/admin/searchCitizen');
+        navigate('/admin/search-citizen');
     };
 
     if (loading) {
@@ -183,6 +183,7 @@ function AddCitizen() {
                             name="idissuedate"
                             value={citizenData.idissuedate}
                             onChange={handleChange}
+                            required
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         />
                     </div>
@@ -203,6 +204,7 @@ function AddCitizen() {
                             name="registrationdate"
                             value={citizenData.registrationdate}
                             onChange={handleChange}
+                            required
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         />
                     </div>

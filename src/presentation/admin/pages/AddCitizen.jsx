@@ -178,6 +178,7 @@ function AddCitizen() {
                             name="idissuedate"
                             value={citizenData.idissuedate}
                             onChange={handleChange}
+                            required
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         />
                     </div>
@@ -198,6 +199,7 @@ function AddCitizen() {
                             name="registrationdate"
                             value={citizenData.registrationdate}
                             onChange={handleChange}
+                            required
                             className="w-full px-4 py-2 border border-gray-300 rounded-lg"
                         />
                     </div>
