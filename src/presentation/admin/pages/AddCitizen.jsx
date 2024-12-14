@@ -76,7 +76,7 @@ function AddCitizen() {
             await addToStatistics(citizenData.reason);
             await addCitizen(citizenData);
             alert('Thêm công dân thành công!');
-            navigate('/searchCitizen'); // Điều hướng về trang kết quả
+            navigate('/admin/search-citizen'); // Điều hướng về trang kết quả
         } catch (error) {
             console.error('Lỗi khi thêm công dân:', error);
             alert(`Lỗi: ${error.message || 'Có lỗi xảy ra, vui lòng thử lại!'}`);
