@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { addCitizen } from '../../../businessLogic/AddCitizenLogic'; // Your existing add citizen logic
-import { supabase } from '../../../data/AddCitizenData'; // Initialize Supabase client
+import { addCitizen } from '../../../businessLogic/EditCitizenLogic'; // Your existing add citizen logic
+import { supabase } from '../../../data/EditCitizenData'; // Initialize Supabase client
 
 function AddCitizen() {
     const navigate = useNavigate();
