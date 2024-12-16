@@ -19,10 +19,11 @@ export const addCitizen = async (citizenData) => {
                 registrationdate: citizenData.registrationdate,
                 previousaddress: citizenData.previousaddress,
             },
-        ]);
+        ])
+        .eq('memberid', citizenData.memberid); // Điều kiện cập nhật dựa trên 'memberid'
 
     if (error) {
-        throw new Error(`Error inserting citizen: ${error.message}`);
+        console.error('Error updating citizen:', error);
     }
     return data;
 };
