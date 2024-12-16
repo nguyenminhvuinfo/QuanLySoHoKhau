@@ -46,7 +46,7 @@ function Login() {
         <form onSubmit={handleLogin}>
           <div className="mb-4">
             <label htmlFor="username" className="block text-gray-700 font-medium mb-2">
-              Tài khoản (T��n người dùng):
+              Tài khoản (Tên người dùng):
             </label>
             <input
               type="text"
